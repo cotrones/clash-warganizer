@@ -3,7 +3,6 @@ import "reflect-metadata";
 import cors from "cors";
 import express from "express";
 import helmet from "helmet";
-import morgan from "morgan";
 import { ApolloServer } from "apollo-server-express";
 import { buildSchema } from "type-graphql";
 import { HelloResolver } from "./resolvers/hello";
@@ -12,7 +11,6 @@ const main = async () => {
   const app = express();
   const port = process.env.PORT;
 
-  app.use(morgan("dev"));
   app.use(
     helmet({
       // needed to use apollo graphql studio sandbox in dev
