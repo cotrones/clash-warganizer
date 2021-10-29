@@ -1,4 +1,5 @@
 import "dotenv-safe/config";
+import "reflect-metadata";
 import cors from "cors";
 import express from "express";
 import helmet from "helmet";
