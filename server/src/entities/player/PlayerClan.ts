@@ -2,7 +2,7 @@ import { Field, ObjectType } from "type-graphql";
 import { BadgeUrls } from "./BadgeUrls";
 
 @ObjectType()
-export class Clan {
+export class PlayerClan {
   @Field()
   tag!: string;
 

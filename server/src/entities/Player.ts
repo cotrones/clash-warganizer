@@ -1,6 +1,6 @@
 import { Field, ObjectType } from "type-graphql";
 import { Achievement } from "./player/Achievement";
-import { Clan } from "./player/Clan";
+import { PlayerClan } from "./player/PlayerClan";
 import { Troop } from "./player/Troop";
 import { Label } from "./player/Label";
 import { League } from "./player/League";
@@ -62,8 +62,8 @@ export class Player {
   @Field()
   donationsReceived!: number;
 
-  @Field(() => Clan, { nullable: true })
-  clan?: Clan;
+  @Field(() => PlayerClan, { nullable: true })
+  clan?: PlayerClan;
 
   @Field(() => League, { nullable: true })
   league?: League;

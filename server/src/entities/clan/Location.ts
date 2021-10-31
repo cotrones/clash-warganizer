@@ -1,13 +1,16 @@
 import { Field, ObjectType } from "type-graphql";
 
 @ObjectType()
-export class LeagueIconUrls {
+export class Location {
   @Field()
-  small!: string;
+  id!: number;
 
   @Field()
-  tiny!: string;
+  name!: string;
+
+  @Field()
+  isCountry!: boolean;
 
   @Field({ nullable: true })
-  medium?: string;
+  countryCode?: string;
 }
