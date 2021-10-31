@@ -1,8 +1,8 @@
 import { Field, ObjectType } from "type-graphql";
+import { Label } from "./common/Label";
 import { Achievement } from "./player/Achievement";
 import { PlayerClan } from "./player/PlayerClan";
 import { Troop } from "./player/Troop";
-import { Label } from "./player/Label";
 import { League } from "./player/League";
 import { LegendStatistics } from "./player/LegendStatistics";
 

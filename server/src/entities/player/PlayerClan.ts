@@ -1,5 +1,5 @@
 import { Field, ObjectType } from "type-graphql";
-import { BadgeUrls } from "./BadgeUrls";
+import { BadgeUrls } from "../common/BadgeUrls";
 
 @ObjectType()
 export class PlayerClan {

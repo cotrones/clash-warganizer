@@ -1,10 +1,10 @@
 import { Field, ObjectType } from "type-graphql";
+import { BadgeUrls } from "./common/BadgeUrls";
+import { Label } from "./common/Label";
 import { ChatLanguage } from "./clan/ChatLanguage";
 import { Location } from "./clan/Location";
 import { Member } from "./clan/Member";
 import { ClanWarLeague } from "./clan/ClanWarLeague";
-import { BadgeUrls } from "./player/BadgeUrls";
-import { Label } from "./player/Label";
 
 @ObjectType()
 export class Clan {
