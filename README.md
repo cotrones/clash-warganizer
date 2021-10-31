@@ -42,6 +42,10 @@ npm i
 
 Add a `.env` file and add the environment variables shown in `.env.example`
 
+- Clash of Clans Developer API Token
+
+To fulfill the environment varibale CLASH_TOKEN, go to the Clash of Clans [developer documentation](https://developer.clashofclans.com) and create a free account. In 'My Account', create a new key with your ip address (for a local environment) or your server's ip address (for a production environment). Use the token (JWT) from your Clash of Clans developer key in your `.env` file.
+
 > Note: The CORS_ORIGIN environment variable will be used when we connect to the frontend. For now you can set this as \*
 
 #### Scripts
