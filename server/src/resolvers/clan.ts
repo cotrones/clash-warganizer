@@ -1,19 +1,12 @@
-import fetch from "node-fetch";
 import { Arg, Query, Resolver } from "type-graphql";
 import { Clan } from "../entities/Clan";
+import { fetchClashAPI } from "../utils/fetchClashAPI";
 
 @Resolver(Clan)
 export class ClanResolver {
   @Query(() => Clan)
   async clan(@Arg("clanTag", () => String) clanTag: string): Promise<Clan> {
-    const response = await fetch(
-      `https://api.clashofclans.com/v1/clans/%23${clanTag}`,
-      {
-        headers: {
-          Authorization: process.env.CLASH_TOKEN,
-        },
-      }
-    );
+    const response = await fetchClashAPI(`clans/%23${clanTag}`);
     return response.json();
   }
 }
