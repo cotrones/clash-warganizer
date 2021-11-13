@@ -24,4 +24,7 @@ export class WarClan {
 
   @Field(() => [WarMember])
   members!: WarMember[];
+
+  @Field({ nullable: true })
+  expEarned?: number;
 }
