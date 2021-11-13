@@ -21,7 +21,7 @@ export class ClanResolver {
   }
 
   @Query(() => WarLog)
-  async warLog(@Arg("clanTag", () => String) clanTag: string): Promise<War> {
+  async warLog(@Arg("clanTag", () => String) clanTag: string): Promise<WarLog> {
     const response = await fetchClashAPI(`clans/%23${clanTag}/warlog`);
     return response.json();
   }
