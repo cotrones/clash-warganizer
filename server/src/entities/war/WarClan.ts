@@ -4,11 +4,11 @@ import { WarMember } from "./WarMember";
 
 @ObjectType()
 export class WarClan {
-  @Field()
-  tag!: string;
+  @Field({ nullable: true })
+  tag?: string;
 
-  @Field()
-  name!: string;
+  @Field({ nullable: true })
+  name?: string;
 
   @Field(() => BadgeUrls)
   badgeUrls!: BadgeUrls;
@@ -16,14 +16,14 @@ export class WarClan {
   @Field()
   clanLevel!: number;
 
-  @Field()
-  attacks!: number;
+  @Field({ nullable: true })
+  attacks?: number;
 
   @Field()
   destructionPercentage!: number;
 
-  @Field(() => [WarMember])
-  members!: WarMember[];
+  @Field(() => [WarMember], { nullable: true })
+  members?: WarMember[];
 
   @Field({ nullable: true })
   expEarned?: number;

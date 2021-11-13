@@ -15,11 +15,11 @@ export class War {
   @Field({ nullable: true })
   attacksPerMember?: number;
 
-  @Field()
-  preparationStartTime!: string;
+  @Field({ nullable: true })
+  preparationStartTime?: string;
 
-  @Field()
-  startTime!: string;
+  @Field({ nullable: true })
+  startTime?: string;
 
   @Field()
   endTime!: string;

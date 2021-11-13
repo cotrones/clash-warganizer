@@ -1,6 +1,7 @@
 import { Arg, Query, Resolver } from "type-graphql";
 import { Clan } from "../entities/Clan";
 import { War } from "../entities/War";
+import { WarLog } from "../entities/war/WarLog";
 import { fetchClashAPI } from "../utils/fetchClashAPI";
 
 @Resolver(Clan)
@@ -16,6 +17,12 @@ export class ClanResolver {
     @Arg("clanTag", () => String) clanTag: string
   ): Promise<War> {
     const response = await fetchClashAPI(`clans/%23${clanTag}/currentwar`);
+    return response.json();
+  }
+
+  @Query(() => WarLog)
+  async warLog(@Arg("clanTag", () => String) clanTag: string): Promise<War> {
+    const response = await fetchClashAPI(`clans/%23${clanTag}/warlog`);
     return response.json();
   }
 }
