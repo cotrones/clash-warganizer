@@ -29,4 +29,7 @@ export class War {
 
   @Field(() => WarClan)
   opponent!: WarClan;
+
+  @Field({ nullable: true })
+  warStartTime?: string;
 }
