@@ -19,6 +19,9 @@ export class WarClan {
   @Field({ nullable: true })
   attacks?: number;
 
+  @Field({ nullable: true })
+  stars?: number;
+
   @Field()
   destructionPercentage!: number;
 
