@@ -12,7 +12,9 @@ export class PlayerResolver {
     const response = await fetchClashAPI(`players/%23${playerTag}`);
     const data = await response.json();
     if (data.reason) {
-      throw new ApolloError(data.reason, response.status.toString());
+      throw new ApolloError(data.reason, response.status.toString(), {
+        message: data?.message,
+      });
     }
     return data;
   }
