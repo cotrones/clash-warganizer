@@ -1,3 +1,4 @@
+import { ApolloError } from "apollo-server-express";
 import { Arg, Query, Resolver } from "type-graphql";
 import { Clan } from "../entities/Clan";
 import { LeagueGroup } from "../entities/LeagueGroup";
@@ -10,7 +11,11 @@ export class ClanResolver {
   @Query(() => Clan)
   async clan(@Arg("clanTag", () => String) clanTag: string): Promise<Clan> {
     const response = await fetchClashAPI(`clans/%23${clanTag}`);
-    return response.json();
+    const data = await response.json();
+    if (data.reason) {
+      throw new ApolloError(data.reason, response.status.toString());
+    }
+    return data;
   }
 
   @Query(() => War)
@@ -18,13 +23,21 @@ export class ClanResolver {
     @Arg("clanTag", () => String) clanTag: string
   ): Promise<War> {
     const response = await fetchClashAPI(`clans/%23${clanTag}/currentwar`);
-    return response.json();
+    const data = await response.json();
+    if (data.reason) {
+      throw new ApolloError(data.reason, response.status.toString());
+    }
+    return data;
   }
 
   @Query(() => WarLog)
   async warLog(@Arg("clanTag", () => String) clanTag: string): Promise<WarLog> {
     const response = await fetchClashAPI(`clans/%23${clanTag}/warlog`);
-    return response.json();
+    const data = await response.json();
+    if (data.reason) {
+      throw new ApolloError(data.reason, response.status.toString());
+    }
+    return data;
   }
 
   @Query(() => LeagueGroup)
@@ -34,12 +47,20 @@ export class ClanResolver {
     const response = await fetchClashAPI(
       `clans/%23${clanTag}/currentwar/leaguegroup`
     );
-    return response.json();
+    const data = await response.json();
+    if (data.reason) {
+      throw new ApolloError(data.reason, response.status.toString());
+    }
+    return data;
   }
 
   @Query(() => War)
   async leagueWar(@Arg("warTag", () => String) warTag: string): Promise<War> {
     const response = await fetchClashAPI(`clanwarleagues/wars/%23${warTag}`);
-    return response.json();
+    const data = await response.json();
+    if (data.reason) {
+      throw new ApolloError(data.reason, response.status.toString());
+    }
+    return data;
   }
 }

@@ -1,3 +1,4 @@
+import { ApolloError } from "apollo-server-express";
 import { Arg, Query, Resolver } from "type-graphql";
 import { Player } from "../entities/Player";
 import { fetchClashAPI } from "../utils/fetchClashAPI";
@@ -9,6 +10,10 @@ export class PlayerResolver {
     @Arg("playerTag", () => String) playerTag: string
   ): Promise<Player> {
     const response = await fetchClashAPI(`players/%23${playerTag}`);
-    return response.json();
+    const data = await response.json();
+    if (data.reason) {
+      throw new ApolloError(data.reason, response.status.toString());
+    }
+    return data;
   }
 }
