@@ -5,7 +5,7 @@ export function fetchClashAPI(
   options?: RequestInit
 ): Promise<Response> {
   const baseUrl = "https://api.clashofclans.com/v1/";
-  const reqUrl = `${baseUrl}${path}`;
+  const reqUrl = `${baseUrl}${encodeURIComponent(path as string)}`;
   const reqOptions = {
     headers: {
       Authorization: `Bearer ${process.env.CLASH_TOKEN}`,
